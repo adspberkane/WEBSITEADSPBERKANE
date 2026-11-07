@@ -1,0 +1,48 @@
+/* Consistent Font Awesome Solid symbols across public and admin interfaces. */
+.site-icon {
+  display: inline-block;
+  width: 1.15em;
+  line-height: inherit;
+  text-align: center;
+  vertical-align: -0.05em;
+  margin-inline: 0.12em;
+  flex-shrink: 0;
+  font-style: normal;
+}
+.site-icon--primary, .site-icon--danger { color: #c6283d; }
+.site-icon--success, .site-icon--medical { color: #16835d; }
+.site-icon--info { color: #2877bd; }
+.site-icon--warning { color: #a86a08; }
+.site-icon--gold { color: #c18a17; }
+.site-icon--silver { color: #7d899b; }
+.site-icon--bronze { color: #b87840; }
+.site-icon--muted { color: #718096; }
+.site-icon--inherit { color: inherit; }
+[data-theme="dark"] .site-icon--primary,
+[data-theme="dark"] .site-icon--danger,
+.admin-body .site-icon--primary,
+.admin-body .site-icon--danger { color: #fb7185; }
+[data-theme="dark"] .site-icon--success,
+[data-theme="dark"] .site-icon--medical,
+.admin-body .site-icon--success,
+.admin-body .site-icon--medical { color: #34d399; }
+[data-theme="dark"] .site-icon--info,
+.admin-body .site-icon--info { color: #60b5f5; }
+[data-theme="dark"] .site-icon--warning,
+.admin-body .site-icon--warning { color: #fbbf24; }
+[data-theme="dark"] .site-icon--gold,
+.admin-body .site-icon--gold { color: #f3bf4b; }
+/* Action labels inherit the button foreground for readable contrast. */
+.btn-primary .site-icon, .admin-btn-primary .site-icon { color: inherit; }
+.hero-slider:empty::after, .hero-slider.is-empty::after {
+  content: '\f043';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  position: absolute;
+  top: calc(50% - 76px);
+  inset-inline-start: calc(50% - 12px);
+  width: 24px;
+  text-align: center;
+  font-size: 24px;
+  color: #fb7185;
+}

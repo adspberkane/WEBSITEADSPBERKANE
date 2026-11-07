@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="الاستعداد للتبرع بالدم ومراحله والعناية بعده، مع توضيح الشائعات بمصادر صحية موثوقة." />
+  <title>التبرع بالدم: أسئلة وحقائق | متبرعو بركان</title>
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/resources.css" />
+  <link rel="stylesheet" href="css/faq.css" />
+  <link rel="stylesheet" href="css/blood-facts.css" />
+  <script src="js/i18n.js" defer></script>
+  <script src="js/brand-logos.js" defer></script>
+  <script src="js/resource-pages.js" defer></script>
+  <script src="js/blood-facts.js" defer></script>
+</head>
+<body class="resource-page faq-page blood-facts-page">
+  <header class="resource-page-header">
+    <a class="resource-page-brand" href="index.html"><img src="assets/logo.png" alt="" width="44" height="44" /><span data-i18n="nav_logo_text">متبرعو بركان</span></a>
+    <nav aria-label="Language / اللغة"><button type="button" data-lang="ar" lang="ar">العربية</button><button type="button" data-lang="fr" lang="fr">Français</button></nav>
+  </header>
+  <main class="faq-main">
+    <a class="faq-back" href="index.html#resources"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6" /></svg><span data-i18n="resources_back">العودة إلى الرئيسية</span></a>
+    <div class="faq-intro facts-intro">
+      <span class="faq-eyebrow" data-facts-text="eyebrow">معرفة تطمئنك</span>
+      <h1 data-i18n="resources_facts_title">التبرع بالدم: أسئلة وحقائق</h1>
+      <p data-facts-text="intro">من الاستعداد إلى التعافي، معلومات واضحة وتصحيح للأفكار المتداولة بمصادر صحية موثوقة.</p>
+    </div>
+    <div class="facts-tabs" role="tablist" aria-label="معلومات التبرع بالدم">
+      <span class="facts-tab-indicator" aria-hidden="true"></span>
+      <button type="button" id="facts-tab-questions" role="tab" aria-selected="true" aria-controls="facts-panel-questions" tabindex="0"><span data-facts-text="questionsTab">أسئلة حول التبرع</span><span class="facts-tab-count" aria-hidden="true">10</span></button>
+      <button type="button" id="facts-tab-myths" role="tab" aria-selected="false" aria-controls="facts-panel-myths" tabindex="-1"><span data-facts-text="mythsTab">شائعات وحقائق</span><span class="facts-tab-count" aria-hidden="true">6</span></button>
+    </div>
+    <section class="facts-panel" id="facts-panel-questions" role="tabpanel" aria-labelledby="facts-tab-questions" tabindex="0">
+      <div id="donation-questions"></div>
+    </section>
+    <section class="facts-panel" id="facts-panel-myths" role="tabpanel" aria-labelledby="facts-tab-myths" tabindex="0" hidden>
+      <div id="donation-myths" class="facts-myth-grid"></div>
+    </section>
+    <div class="facts-guidance"><p data-facts-text="guidance">هذه معلومات عامة للتوعية، واتبع دائماً تعليمات الفريق الطبي المشرف على تبرعك.</p><p><span data-facts-text="reviewLabel">مراجعة المصادر:</span> <time datetime="2026-11-07" id="facts-review-date">7 نونبر 2026</time></p></div>
+    <noscript><p class="faq-noscript">يرجى تفعيل JavaScript لعرض المحتوى. / Activez JavaScript pour consulter le contenu.</p></noscript>
+  </main>
+</body>
+</html>

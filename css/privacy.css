@@ -1,0 +1,18 @@
+.privacy-page { min-height: 100vh; }
+.privacy-header { max-width: 960px; margin: auto; padding: 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.privacy-brand { display: flex; align-items: center; gap: 12px; font-weight: 800; }
+.privacy-header nav { display: flex; gap: 8px; }
+.privacy-header button { padding: 8px 14px; border: 1px solid var(--border); border-radius: var(--radius-xs); background: var(--bg-card); color: var(--text); }
+.privacy-header button.active { background: var(--primary); color: white; border-color: var(--primary); }
+.privacy-content { width: calc(100% - 32px); max-width: 880px; margin: 8px auto 48px; padding: clamp(20px, 5vw, 48px); border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-card); box-shadow: var(--shadow); overflow-wrap: anywhere; }
+.privacy-copy h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); line-height: 1.4; margin: 24px 0 12px; }
+.privacy-association { font-weight: 700; }
+.privacy-date { color: var(--text-secondary); font-size: .9rem; margin-top: 8px; }
+.privacy-copy h2 { font-size: 1.15rem; margin: 28px 0 10px; }
+.privacy-copy p { margin-bottom: 12px; }
+.privacy-copy ul { list-style: disc; padding-inline-start: 24px; margin-bottom: 16px; }
+.privacy-copy li { margin-bottom: 8px; }
+.privacy-content a { color: var(--primary); text-decoration: underline; text-underline-offset: 4px; }
+.privacy-content a[dir="ltr"] { display: inline-block; }
+.privacy-page a:focus-visible, .privacy-page button:focus-visible { outline: 3px solid var(--secondary); outline-offset: 4px; }
+html[lang="ar"] .privacy-fr, html[lang="fr"] .privacy-ar { display: none; }

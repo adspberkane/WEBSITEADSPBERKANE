@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="جمعية المتبرعين بالدم بإقليم بركان — Association des Donneurs de Sang de la Province de Berkane" />
+  <title>جمعية المتبرعين بالدم بإقليم بركان</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Favicon (official association logo) -->
+  <link rel="icon" type="image/x-icon" href="assets/logo.ico" />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
+
+  <!-- Font Awesome 6 Icons (Secured with SRI) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/resources.css" />
+  <link rel="stylesheet" href="css/ui-icons.css" />
+</head>
+
+<body class="site-home">
+  <a class="site-skip-link" href="#main-content">
+    <span lang="ar">الانتقال إلى المحتوى الرئيسي</span>
+    <span lang="fr">Aller au contenu principal</span>
+  </a>
+  <!-- ========== EMERGENCY BANNER ========== -->
+  <header>
+    <div id="emergency-bar" style="display: none;">
+      <span data-i18n="emergency_text"></span>
+      <button id="emergency-close" aria-label="إغلاق / Fermer">&times;</button>
+    </div>
+
+    <!-- ========== NAVBAR ========== -->
+    <nav id="navbar">
+      <div class="container nav-inner">
+        <a href="#" class="nav-logo">
+          <picture class="nav-logo-mark"><img src="assets/logo.png" alt="جمعية المتبرعين بالدم بإقليم بركان" width="48" height="48" loading="eager" fetchpriority="high" decoding="async" /></picture>
+          <span data-i18n="nav_logo_text">متبرعو بركان</span>
+        </a>
+
+        <div id="nav-links">
+          <a href="#hero" data-i18n="nav_home">الرئيسية</a>
+          <a href="#campaigns" data-i18n="nav_campaigns">الحملات</a>
+          <a href="#gallery" data-i18n="nav_gallery">معرض الأنشطة</a>
+          <div class="nav-dropdown" id="nav-dropdown">
+            <button class="nav-dropdown-toggle" id="nav-dropdown-toggle" type="button" aria-expanded="false" aria-haspopup="true">
+              <span data-i18n="nav_more">المزيد</span>
+              <span class="dropdown-caret">▾</span>
+            </button>
+            <div class="nav-dropdown-menu" id="nav-dropdown-menu" role="menu">
+              <a href="#about" data-i18n="nav_about" role="menuitem">من نحن</a>
+              <a href="#compatibility" data-i18n="nav_compatibility" role="menuitem">توافق الفصائل</a>
+              <a href="#eligibility" data-i18n="nav_eligibility" role="menuitem">اختبار الأهلية</a>
+              <a href="#recovery-simulator" data-i18n="nav_recovery" role="menuitem">محاكي التعافي</a>
+              <a href="#teams-leaderboard" data-i18n="nav_leaderboard" role="menuitem">تحدي الفرق</a>
+              <a href="#partners" data-i18n="nav_partners" role="menuitem">شركاؤنا</a>
+              <a href="#register" data-i18n="nav_register" role="menuitem">انضم إلينا</a>
+            </div>
+          </div>
+          <a href="#footer" data-i18n="nav_contact">تواصل معنا</a>
+        </div>
+
+        <div class="nav-actions">
+          <div class="lang-switcher">
+            <button class="lang-btn active" data-lang="ar">العربية</button>
+            <button class="lang-btn" data-lang="fr">Français</button>
+          </div>
+          <!-- Adapted from Skiper UI ThemeToggleButton3 (https://skiper-ui.com/v1/skiper4), inspired by toggles.dev. -->
+          <button id="theme-toggle" type="button" aria-label="تفعيل الوضع الليلي" aria-pressed="false">
+            <svg class="theme-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor" stroke-linecap="round" aria-hidden="true" focusable="false">
+              <defs>
+                <clipPath id="theme-toggle-clip"><path class="theme-clip" d="M0-11h25a1 1 0 0017 13v30H0Z" /></clipPath>
+              </defs>
+              <g clip-path="url(#theme-toggle-clip)">
+                <circle class="theme-disc" cx="16" cy="16" r="8" />
+                <g class="theme-rays" stroke="currentColor" stroke-width="1.5">
+                  <path d="M18.3 3.2c0 1.3-1 2.3-2.3 2.3s-2.3-1-2.3-2.3S14.7.9 16 .9s2.3 1 2.3 2.3zm-4.6 25.6c0-1.3 1-2.3 2.3-2.3s2.3 1 2.3 2.3-1 2.3-2.3 2.3-2.3-1-2.3-2.3zm15.1-10.5c-1.3 0-2.3-1-2.3-2.3s1-2.3 2.3-2.3 2.3 1 2.3 2.3-1 2.3-2.3 2.3zM3.2 13.7c1.3 0 2.3 1 2.3 2.3s-1 2.3-2.3 2.3S.9 17.3.9 16s1-2.3 2.3-2.3zm5.8-7C9 7.9 7.9 9 6.7 9S4.4 8 4.4 6.7s1-2.3 2.3-2.3S9 5.4 9 6.7zm16.3 21c-1.3 0-2.3-1-2.3-2.3s1-2.3 2.3-2.3 2.3 1 2.3 2.3-1 2.3-2.3 2.3zm2.4-21c0 1.3-1 2.3-2.3 2.3S23 7.9 23 6.7s1-2.3 2.3-2.3 2.4 1 2.4 2.3zM6.7 23C8 23 9 24 9 25.3s-1 2.3-2.3 2.3-2.3-1-2.3-2.3 1-2.3 2.3-2.3z" />
+                </g>
+              </g>
+            </svg>
+          </button>
+          <a href="#register" class="cta-nav" data-i18n="cta_donate">تبرع الآن</a>
+        </div>
+
+        <button id="menu-toggle" aria-label="القائمة / Menu" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <!-- ========== HERO SECTION ========== -->
+    <section id="hero">
+      <div class="container hero-container hero-content">
+        <!-- Column 1: The Hero Text, Subtitle, and Buttons -->
+        <div class="hero-text-col">
+          <div class="hero-badge">
+            <span class="hero-badge-logo"><img src="assets/logo.png" alt="شعار الجمعية" width="56" height="56" loading="eager" fetchpriority="high" decoding="async" /></span>
+            <span data-i18n="hero_badge">جمعية المتبرعين بالدم بإقليم بركان</span>
+          </div>
+          <h1 class="hero-title" data-i18n="hero_title">كل قطرة دم تصنع الفارق</h1>
+          <p class="hero-subtitle" data-i18n="hero_subtitle">جمعية المتبرعين بالدم بإقليم بركان في خدمة الإنسانية منذ 2002. انضم إلينا وكن سببا في إنقاذ حياة.</p>
+          <div class="hero-buttons">
+            <a href="#register" class="btn btn-white" data-i18n="hero_cta_register">سجل كمتبرع</a>
+            <a href="#eligibility" class="btn btn-outline" data-i18n="hero_cta_eligibility">اختبر أهليتك</a>
+          </div>
+          <a href="#campaigns" class="hero-campaign-link">
+            <i class="fa-regular fa-calendar" aria-hidden="true"></i>
+            <span data-i18n="campaign_title">الحملة القادمة</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+
+        <!-- Column 2: The Hero Image Slider container -->
+        <div id="hero-slider" class="hero-slider"></div>
+      </div>
+    </section>
+
+    <!-- ========== STATS CARDS ========== -->
+    <section class="section-padding section-stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card reveal" data-target="3500">
+            <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
+            <div class="stat-number" id="counter-donors">0</div>
+            <div class="stat-label" data-i18n="stat_donors">المتبرعون المسجلون</div>
+          </div>
+          <div class="stat-card reveal" data-target="8200">
+            <div class="stat-icon"><i class="fa-solid fa-droplet"></i></div>
+            <div class="stat-number" id="counter-bags">0</div>
+            <div class="stat-label" data-i18n="stat_bags">أكياس الدم المجمعة</div>
+          </div>
+          <div class="stat-card reveal" data-target="130">
+            <div class="stat-icon"><i class="fa-solid fa-calendar-check"></i></div>
+            <div class="stat-number" id="counter-campaigns">0</div>
+            <div class="stat-label" data-i18n="stat_campaigns">حملات التبرع</div>
+          </div>
+          <div class="stat-card reveal" data-target="24000">
+            <div class="stat-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+            <div class="stat-number" id="counter-lives">0</div>
+            <div class="stat-label" data-i18n="stat_lives">الأرواح المنقذة</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ABOUT SECTION ========== -->
+    <section id="about" class="section-padding">
+      <div class="container">
+        <h2 class="section-title reveal" data-i18n="about_title">من نحن</h2>
+        <div class="about-content reveal">
+          <p data-i18n="about_p1">جمعية المتبرعين بالدم بإقليم بركان هي جمعية غير ربحية تأسست سنة 2002 بمدينة بركان، وتعمل في إطار القانون المغربي المنظم لحق تأسيس الجمعيات. تهدف الجمعية إلى نشر ثقافة التبرع الطوعي بالدم والتحسيس بأهميته في إنقاذ الأرواح بالجهة الشرقيةوفي ربوع المملكة المغربية</p>
+          <p data-i18n="about_p2">تنظم الجمعية حملات منتظمة للتبرع بالدم بشراكة مع المركز الجهوي لتحاقن الدم بوجدة والمندوبية الإقليمية لوزارة الصحة ببركان. كما تقوم بأنشطة توعوية في المدارس والأسواق والمساجد لتشجيع المواطنين على التبرع المنتظم.</p>
+        </div>
+        <div class="about-features" id="pillars-container">
+          <div class="about-feature reveal" id="pillar-card-1">
+            <div class="feature-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+            <h3 data-i18n="about_feat1_title">شراكات مؤسساتية</h3>
+            <p data-i18n="about_feat1_desc">شراكات فاعلة مع المركز الجهوي لتحاقن الدم والمؤسسات الصحية والجمعوية بالجهة الشرقية.</p>
+          </div>
+          <div class="about-feature reveal" id="pillar-card-2">
+            <div class="feature-icon"><i class="fa-solid fa-bullhorn"></i></div>
+            <h3 data-i18n="about_feat2_title">توعية وتحسيس</h3>
+            <p data-i18n="about_feat2_desc">أنشطة تحسيسية مستمرة لنشر ثقافة التبرع الطوعي بالدم بين مختلف فئات المجتمع.</p>
+          </div>
+          <div class="about-feature reveal" id="pillar-card-3">
+            <div class="feature-icon"><i class="fa-solid fa-truck-medical"></i></div>
+            <h3 data-i18n="about_feat3_title">حملات متنقلة</h3>
+            <p data-i18n="about_feat3_desc">تنظيم حملات للتبرع بالدم في مختلف مناطق إقليم بركان .</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== BLOOD COMPATIBILITY ========== -->
+    <section id="compatibility" class="section-padding">
+      <div class="container">
+        <h2 class="section-title reveal" data-i18n="compat_title">جدول توافق فصائل الدم</h2>
+        <p class="section-subtitle reveal" data-i18n="compat_subtitle">اختر فصيلة دمك لمعرفة من يمكنك التبرع له ومن يمكنه التبرع لك</p>
+
+        <div class="blood-badges reveal">
+          <button class="blood-badge" data-type="O-">O-</button>
+          <button class="blood-badge" data-type="O+">O+</button>
+          <button class="blood-badge" data-type="A-">A-</button>
+          <button class="blood-badge" data-type="A+">A+</button>
+          <button class="blood-badge" data-type="B-">B-</button>
+          <button class="blood-badge" data-type="B+">B+</button>
+          <button class="blood-badge" data-type="AB-">AB-</button>
+          <button class="blood-badge" data-type="AB+">AB+</button>
+        </div>
+
+        <div id="compat-results">
+          <div class="compat-grid">
+            <div class="compat-box">
+              <h3><span class="arrow-icon">➡️</span> <span data-i18n="compat_donate_to">يمكنه التبرع لـ</span></h3>
+              <div id="donate-to-list" class="compat-list"></div>
+            </div>
+            <div class="compat-box">
+              <h3><span class="arrow-icon">⬅️</span> <span data-i18n="compat_receive_from">يمكنه الاستفادة من</span></h3>
+              <div id="receive-from-list" class="compat-list"></div>
+            </div>
+          </div>
+        </div>
+
+        <p class="compat-prompt" id="compat-prompt" data-i18n="compat_select_prompt">اختر فصيلة دم أعلاه</p>
+      </div>
+    </section>
+
+    <!-- ========== ELIGIBILITY QUIZ ========== -->
+    <section id="eligibility" class="section-padding">
+      <div class="container">
+        <h2 class="section-title reveal" data-i18n="elig_title">اختبار أهلية التبرع</h2>
+        <p class="section-subtitle reveal" data-i18n="elig_subtitle">أجب على الأسئلة التالية لمعرفة مدى أهليتك للتبرع بالدم</p>
+
+        <div class="quiz-container reveal" id="eligibility-quiz">
+          <div class="quiz-progress-bar">
+            <div id="quiz-progress"></div>
+          </div>
+
+          <div class="quiz-step-indicator">
+            <span data-i18n="elig_step">السؤال</span> <span id="current-step-num">1</span> <span data-i18n="elig_of">من</span> 5
+          </div>
+
+          <!-- Question 1 -->
+          <div class="quiz-step active" data-step="1">
+            <p class="quiz-question" data-i18n="elig_q1">هل عمرك بين 18 و 60 سنة؟</p>
+            <div class="quiz-answers">
+              <button class="quiz-answer-btn quiz-yes" data-i18n="elig_yes">نعم</button>
+              <button class="quiz-answer-btn quiz-no" data-i18n="elig_no">لا</button>
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <div class="quiz-step" data-step="2">
+            <p class="quiz-question" data-i18n="elig_q2">هل يتجاوز وزنك 50 كيلوغراماً؟</p>
+            <div class="quiz-answers">
+              <button class="quiz-answer-btn quiz-yes" data-i18n="elig_yes">نعم</button>
+              <button class="quiz-answer-btn quiz-no" data-i18n="elig_no">لا</button>
+            </div>
+          </div>
+
+          <!-- Question 3 -->
+          <div class="quiz-step" data-step="3">
+            <p class="quiz-question" data-i18n="elig_q3">هل مضت مدة كافية منذ آخر تبرع (شهران للرجال، 3 أشهر للنساء)؟</p>
+            <div class="quiz-answers">
+              <button class="quiz-answer-btn quiz-yes" data-i18n="elig_yes">نعم</button>
+              <button class="quiz-answer-btn quiz-no" data-i18n="elig_no">لا</button>
+            </div>
+          </div>
+
+          <!-- Question 4 -->
+          <div class="quiz-step" data-step="4">
+            <p class="quiz-question" data-i18n="elig_q4">هل أنت بصحة جيدة ولم تخضع لعملية جراحية في آخر 6 أشهر؟</p>
+            <div class="quiz-answers">
+              <button class="quiz-answer-btn quiz-yes" data-i18n="elig_yes">نعم</button>
+              <button class="quiz-answer-btn quiz-no" data-i18n="elig_no">لا</button>
+            </div>
+          </div>
+
+          <!-- Question 5 -->
+          <div class="quiz-step" data-step="5">
+            <p class="quiz-question" data-i18n="elig_q5">هل تعلم أن الفحص الطبي القبلي من طرف طبيب الحملة إلزامي قبل كل تبرع؟</p>
+            <div class="quiz-answers">
+              <button class="quiz-answer-btn quiz-yes" data-i18n="elig_yes">نعم</button>
+              <button class="quiz-answer-btn quiz-no" data-i18n="elig_no">لا</button>
+            </div>
+          </div>
+
+          <!-- Quiz Navigation -->
+          <div class="quiz-nav">
+            <button class="quiz-nav-btn quiz-prev" data-i18n="elig_prev">السابق</button>
+            <button class="quiz-nav-btn quiz-next" data-i18n="elig_next">التالي</button>
+          </div>
+
+          <!-- Quiz Result -->
+          <div id="quiz-result">
+            <div class="result-badge" id="quiz-result-badge">
+              <h3 class="quiz-result-title"></h3>
+              <p class="quiz-result-desc"></p>
+            </div>
+            <button class="quiz-restart-btn" id="quiz-restart" data-i18n="elig_restart">إعادة الاختبار</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SMART BODY RECOVERY SIMULATOR ========== -->
+    <section id="recovery-simulator" class="recovery-section section-padding">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="recovery-header text-center reveal">
+          <div class="recovery-badge">
+            <span class="pulse-dot"></span>
+            <span data-i18n="recovery_badge">رحلة التجدد الحيوي داخل جسمك</span>
+          </div>
+          <h2 class="section-title" data-i18n="recovery_title">ماذا يحدث في جسمك بعد التبرع بالدم؟</h2>
+          <p class="section-subtitle" data-i18n="recovery_subtitle">تابع المحاكاة العلمية الدقيقة لتعويض السوائل، تجدد الخلايا، ومسار كيس دمك بالمستشفى</p>
+        </div>
+
+        <!-- 5-Stage Timeline Navigation Buttons -->
+        <div class="recovery-timeline-nav reveal" id="recovery-timeline-btns" role="tablist">
+          <button type="button" class="recovery-step-btn active" data-stage="0" role="tab" aria-selected="true">
+            <span class="step-num">1</span>
+            <span class="step-label" data-i18n="recovery_stage_1">بعد 15 دقيقة</span>
+          </button>
+          <button type="button" class="recovery-step-btn" data-stage="1" role="tab" aria-selected="false">
+            <span class="step-num">2</span>
+            <span class="step-label" data-i18n="recovery_stage_2">بعد 24 - 48 ساعة</span>
+          </button>
+          <button type="button" class="recovery-step-btn" data-stage="2" role="tab" aria-selected="false">
+            <span class="step-num">3</span>
+            <span class="step-label" data-i18n="recovery_stage_3">بعد 3 - 5 أيام</span>
+          </button>
+          <button type="button" class="recovery-step-btn" data-stage="3" role="tab" aria-selected="false">
+            <span class="step-num">4</span>
+            <span class="step-label" data-i18n="recovery_stage_4">بعد 4 - 6 أسابيع</span>
+          </button>
+          <button type="button" class="recovery-step-btn" data-stage="4" role="tab" aria-selected="false">
+            <span class="step-num">5</span>
+            <span class="step-label" data-i18n="recovery_stage_5">بعد 8 أسابيع 🏆</span>
+          </button>
+        </div>
+
+        <!-- 2-Column Interactive Dashboard -->
+        <div class="recovery-dashboard reveal">
+          <!-- Column 1: Visual Gauge & Donated Bag Hospital Status -->
+          <div class="recovery-col-visual">
+            <div class="recovery-tank-card">
+              <div class="recovery-tank-outer">
+                <div class="recovery-tank" id="recovery-tank">
+                  <div class="recovery-liquid" id="recovery-liquid" style="height: 25%;">
+                    <div class="liquid-wave liquid-wave-1"></div>
+                    <div class="liquid-wave liquid-wave-2"></div>
+                  </div>
+                  <div class="recovery-tank-center">
+                    <span class="recovery-stage-icon" id="recovery-stage-icon">⏱️</span>
+                    <span class="recovery-overall-percent" id="recovery-overall-percent">25%</span>
+                    <span class="recovery-overall-label" data-i18n="recovery_overall_label">نسبة التعافي الإجمالية</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hospital Draq Blood Bag Status Card -->
+            <div class="recovery-bag-card" id="recovery-bag-status">
+              <div class="recovery-bag-header">
+                <span class="bag-icon">🩸</span>
+                <h4 data-i18n="recovery_bag_title">مسار كيس دمك بالمستشفى🏥</h4>
+              </div>
+              <p class="recovery-bag-text" id="recovery-bag-text">
+                كيس الدم في طريقه لوحدة الحفظ المبردة بالمستشفى؛ يخضع لترميز باركود آمن تمهيداً لفصل مكوناته المخبرية.
+              </p>
+            </div>
+          </div>
+
+          <!-- Column 2: Biological Metrics & Medical Tip -->
+          <div class="recovery-col-metrics">
+            <div class="recovery-stage-info">
+              <h3 class="recovery-stage-title" id="recovery-stage-title">انقباض الأوعية وتثبيت ضغط الدم</h3>
+              <p class="recovery-stage-desc" id="recovery-stage-desc">
+                تبدأ الأوعية الدموية بالانقباض التلقائي للحفاظ على ضغط دم مستقر. تعوض السوائل المتناولة فوراً (الماء والعصير في خيمة الاستراحة) حجم الدورة الدموية، وتعمل الصفائح على إغلاق نقطة الوخز بأمان تام.
+              </p>
+            </div>
+
+            <!-- 3 Animated Progress Bars -->
+            <div class="recovery-metrics-list">
+              <!-- Metric 1: Plasma & Fluids -->
+              <div class="recovery-metric-item">
+                <div class="metric-info">
+                  <span class="metric-name">
+                    <i class="fa-solid fa-droplet" style="color: #38BDF8;"></i>
+                    <span data-i18n="recovery_metric_plasma">تعويض البلازما والسوائل</span>
+                  </span>
+                  <span class="metric-val" id="bar-plasma-val">20%</span>
+                </div>
+                <div class="metric-track">
+                  <div class="metric-fill metric-plasma" id="bar-plasma" style="width: 20%;"></div>
+                </div>
+              </div>
+
+              <!-- Metric 2: Platelets -->
+              <div class="recovery-metric-item">
+                <div class="metric-info">
+                  <span class="metric-name">
+                    <i class="fa-solid fa-shield-halved" style="color: #F59E0B;"></i>
+                    <span data-i18n="recovery_metric_platelets">تجدد الصفائح الدموية</span>
+                  </span>
+                  <span class="metric-val" id="bar-platelets-val">50%</span>
+                </div>
+                <div class="metric-track">
+                  <div class="metric-fill metric-platelets" id="bar-platelets" style="width: 50%;"></div>
+                </div>
+              </div>
+
+              <!-- Metric 3: Red Blood Cells (RBC) -->
+              <div class="recovery-metric-item">
+                <div class="metric-info">
+                  <span class="metric-name">
+                    <i class="fa-solid fa-dna" style="color: #E11D48;"></i>
+                    <span data-i18n="recovery_metric_rbc">بناء الكريات الحمراء الجديدة</span>
+                  </span>
+                  <span class="metric-val" id="bar-rbc-val">15%</span>
+                </div>
+                <div class="metric-track">
+                  <div class="metric-fill metric-rbc" id="bar-rbc" style="width: 15%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Doctor Tip Box -->
+            <div class="recovery-doctor-box">
+              <div class="doctor-avatar">👨‍⚕️</div>
+              <div class="doctor-content">
+                <h5 data-i18n="recovery_doctor_tip_title">نصيحة طبيب الحملة</h5>
+                <p id="recovery-doctor-tip">استرح لمدة 10 إلى 15 دقيقة، واشرب كوبين من الماء أو العصير الطبيعي وتناول وجبة خفيفة قبل مغادرة موقع الحملة.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Personal Recovery Calculator Bar -->
+        <div class="recovery-calculator-bar reveal">
+          <div class="calc-header">
+            <span class="calc-icon" aria-hidden="true"><i class="fa-solid fa-calculator"></i></span>
+            <div>
+              <h4 class="calc-title" id="recovery-calc-title" data-i18n="recovery_calc_title">حاسبة تعافيك وموعد تبرعك القادم</h4>
+              <p class="calc-subtitle" data-i18n="recovery_calc_subtitle">أدخل تاريخ آخر تبرع لك بالدم لمعرفة مرحلتك الحالية فوراً وتاريخ تبرعك القادم المسموح به طبياً</p>
+            </div>
+          </div>
+          <form id="recovery-calc-form" class="calc-form">
+            <div class="calc-input-wrap">
+              <input type="date" id="last-donation-date" class="calc-date-input" aria-labelledby="recovery-calc-title" required />
+            </div>
+            <button type="submit" id="btn-check-recovery" class="btn btn-primary calc-submit-btn">
+              <i class="fa-solid fa-stethoscope"></i>
+              <span data-i18n="recovery_calc_btn">افحص حالتي الآن</span>
+            </button>
+          </form>
+          <div id="personal-recovery-result" class="calc-result" style="display: none;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CAMPAIGNS & COUNTDOWN ========== -->
+    <section id="campaigns" class="section-padding">
+      <div class="container">
+        <h2 class="section-title reveal" data-i18n="campaign_title">الحملة القادمة</h2>
+
+        <div class="campaign-card reveal">
+          <h3 class="campaign-name" data-i18n="campaign_name">لا توجد حملة معلنة حاليًا</h3>
+          <p class="campaign-info" data-i18n="campaign_location"></p>
+          <p class="campaign-info" data-i18n="campaign_date"></p>
+
+          <div class="countdown-grid" style="display: none;">
+            <div class="countdown-item">
+              <div class="countdown-number" id="countdown-days">--</div>
+              <div class="countdown-label" data-i18n="countdown_days">يوم</div>
+            </div>
+            <div class="countdown-item">
+              <div class="countdown-number" id="countdown-hours">--</div>
+              <div class="countdown-label" data-i18n="countdown_hours">ساعة</div>
+            </div>
+            <div class="countdown-item">
+              <div class="countdown-number" id="countdown-minutes">--</div>
+              <div class="countdown-label" data-i18n="countdown_minutes">دقيقة</div>
+            </div>
+            <div class="countdown-item">
+              <div class="countdown-number" id="countdown-seconds">--</div>
+              <div class="countdown-label" data-i18n="countdown_seconds">ثانية</div>
+            </div>
+          </div>
+          <div id="countdown-status" class="countdown-status" style="display: none; margin-top: 20px; font-weight: 700; color: #10B981; text-align: center; font-size: 1.1rem; background: rgba(16, 185, 129, 0.1); padding: 12px; border-radius: 8px; border: 1px solid rgba(16, 185, 129, 0.3);"></div>
+        </div>
+
+        <!-- Donor Journey -->
+        <div class="journey-section">
+          <h2 class="section-title reveal" data-i18n="journey_title">مراحل التبرع</h2>
+          <div class="timeline reveal">
+            <div class="timeline-step">
+              <div class="step-number">1</div>
+              <h3 data-i18n="journey_step1_title">الاستقبال والفحص الطبي القبلي</h3>
+              <p data-i18n="journey_step1_desc">يستقبلك فريقنا ويقوم الطبيب المختص بفحص طبي شامل للتأكد من أهليتك.</p>
+            </div>
+            <div class="timeline-step">
+              <div class="step-number">2</div>
+              <h3 data-i18n="journey_step2_title">التسجيل في المنظومة الرقمية</h3>
+              <p data-i18n="journey_step2_desc">يتم تسجيل بياناتك بشكل آمن في المنظومة الرقمية الوطنية لنقل الدم.</p>
+            </div>
+            <div class="timeline-step">
+              <div class="step-number">3</div>
+              <h3 data-i18n="journey_step3_title">التبرع بالدم الآمن</h3>
+              <p data-i18n="journey_step3_desc">عملية التبرع تستغرق حوالي 10 دقائق فقط في ظروف صحية آمنة تماماً.</p>
+            </div>
+            <div class="timeline-step">
+              <div class="step-number">4</div>
+              <h3 data-i18n="journey_step4_title">الاستراحة والوجبة الخفيفة</h3>
+              <p data-i18n="journey_step4_desc">بعد التبرع، استرح قليلاً واستمتع بوجبة خفيفة ومشروبات مقدمة من الجمعية.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== QUESTIONS & INFORMATION ========== -->
+    <section id="resources" class="section-padding" aria-labelledby="resources-title">
+      <div class="container">
+        <h2 id="resources-title" class="section-title reveal" data-i18n="resources_title">الأسئلة والمعلومات</h2>
+        <p class="section-subtitle reveal" data-i18n="resources_subtitle">كل ما يساعدك على فهم التسجيل والتبرع بالدم.</p>
+        <div class="resource-links">
+          <a class="resource-link" href="faq.html" aria-labelledby="resource-faq-title" aria-describedby="resource-faq-description">
+            <span class="resource-link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" /><path d="M9.5 9a2.5 2.5 0 0 1 5 .4c0 1.8-2.5 2-2.5 3.6M12 16.5h.01" /></svg></span>
+            <span class="resource-link-copy"><span class="resource-link-title" id="resource-faq-title" data-i18n="resources_faq_title">الأسئلة الشائعة</span><span class="resource-link-description" id="resource-faq-description" data-i18n="resources_faq_description">التسجيل، الخصوصية واستعمال الموقع</span></span>
+            <span class="resource-link-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></span>
+          </a>
+          <a class="resource-link" href="blood-facts.html" aria-labelledby="resource-facts-title" aria-describedby="resource-facts-description">
+            <span class="resource-link-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v15M3 4.5c3-1 6-.5 9 1.5 3-2 6-2.5 9-1.5V19c-3-1-6-.5-9 1.5C9 18.5 6 18 3 19Z" /><path d="M6 8h3m-3 4h3m6-4h3m-3 4h3" /></svg></span>
+            <span class="resource-link-copy"><span class="resource-link-title" id="resource-facts-title" data-i18n="resources_facts_title">التبرع بالدم: أسئلة وحقائق</span><span class="resource-link-description" id="resource-facts-description" data-i18n="resources_facts_description">حول التبرع بالدم والشائعات المتداولة</span></span>
+            <span class="resource-link-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-6-6 6 6-6 6" /></svg></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== REGISTRATION FORMS ========== -->
+    <section id="register" class="section-padding">
+      <div class="container">
+        <h2 class="section-title reveal" data-i18n="register_title">انضم إلينا</h2>
+
+        <div class="form-tabs reveal">
+          <button class="form-tab active" data-tab="donor" data-i18n="tab_donor">التسجيل كمتبرع</button>
+          <button class="form-tab" data-tab="volunteer" data-i18n="tab_volunteer">التطوع معنا</button>
+        </div>
+
+        <!-- Donor Registration Form -->
+        <div class="form-panel active" id="form-donor">
+          <form id="donor-form" novalidate>
+            <div class="form-group">
+              <label for="donor-fullname" data-i18n="form_fullname">الاسم الكامل</label>
+              <input id="donor-fullname" type="text" name="fullname" required maxlength="100" data-i18n-placeholder="form_fullname" placeholder="الاسم الكامل" />
+            </div>
+            <div class="form-group">
+              <label for="donor-phone" data-i18n="form_phone">رقم الهاتف</label>
+              <input id="donor-phone" type="tel" name="phone" required maxlength="20" data-i18n-placeholder="form_phone" placeholder="رقم الهاتف" />
+            </div>
+            <div class="form-group">
+              <label for="donor-bloodgroup" data-i18n="form_blood_group">فصيلة الدم</label>
+              <select id="donor-bloodgroup" name="bloodgroup" required>
+                <option value="" data-i18n="form_blood_select">اختر فصيلة الدم</option>
+                <option value="N/A" data-i18n="form_blood_unknown">لا أعرف فصيلة دمي</option>
+                <option value="O-">O-</option>
+                <option value="O+">O+</option>
+                <option value="A-">A-</option>
+                <option value="A+">A+</option>
+                <option value="B-">B-</option>
+                <option value="B+">B+</option>
+                <option value="AB-">AB-</option>
+                <option value="AB+">AB+</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="donor-district" data-i18n="form_district_label">الحي / الجماعة</label>
+              <input id="donor-district" type="text" name="district" required maxlength="100" data-i18n-placeholder="form_district" placeholder="الحي / الجماعة (إقليم بركان)" />
+            </div>
+            <div class="consent-group">
+              <input type="checkbox" id="consent-check" name="consent" required />
+              <label for="consent-check" data-i18n="form_consent">أوافق على معالجة بياناتي الشخصية وفقاً للقانون المغربي 09-08 المتعلق بحماية المعطيات ذات الطابع الشخصي</label>
+            </div>
+            <p class="privacy-form-note"><a href="privacy.html" target="_blank" rel="noopener" data-i18n="privacy_link">سياسة الخصوصية</a></p>
+            <button type="submit" class="form-submit-btn" data-i18n="form_submit_donor">تسجيل</button>
+          </form>
+        </div>
+
+        <!-- Volunteer Form -->
+        <div class="form-panel" id="form-volunteer">
+          <form id="volunteer-form" novalidate>
+            <div class="form-group">
+              <label for="volunteer-fullname" data-i18n="form_fullname">الاسم الكامل</label>
+              <input id="volunteer-fullname" type="text" name="fullname" required maxlength="100" data-i18n-placeholder="vol_fullname" placeholder="الاسم الكامل" />
+            </div>
+            <div class="form-group">
+              <label for="volunteer-phone" data-i18n="form_phone">رقم الهاتف</label>
+              <input id="volunteer-phone" type="tel" name="phone" required maxlength="20" data-i18n-placeholder="vol_phone" placeholder="رقم الهاتف" />
+            </div>
+            <div class="form-group">
+              <label for="volunteer-area" data-i18n="vol_area">مجال المساهمة</label>
+              <select id="volunteer-area" name="area" required>
+                <option value="" data-i18n="vol_area_select">اختر مجال المساهمة</option>
+                <option value="logistics" data-i18n="vol_area_logistics">التنظيم واللوجستيك</option>
+                <option value="comm" data-i18n="vol_area_comm">التواصل والإعلام</option>
+                <option value="medical" data-i18n="vol_area_medical">الدعم الطبي</option>
+                <option value="awareness" data-i18n="vol_area_awareness">التوعية والتحسيس</option>
+              </select>
+            </div>
+            <p class="privacy-form-note"><a href="privacy.html" target="_blank" rel="noopener" data-i18n="privacy_link">سياسة الخصوصية</a></p>
+            <button type="submit" class="form-submit-btn" data-i18n="form_submit_volunteer">إرسال الطلب</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== ACTIVITIES & CAMPAIGNS GALLERY ========== -->
+    <section id="gallery" class="section-padding">
+      <div class="container">
+        <h2 class="section-title reveal" data-i18n="gallery_title">معرض الأنشطة والحملات</h2>
+        <p class="section-subtitle reveal" data-i18n="gallery_subtitle">توثيق مصور لأبرز حملات وقوافل التبرع بالدم والأنشطة التحسيسية بإقليم بركان</p>
+
+        <div class="gallery-filters reveal">
+          <button class="gallery-filter-btn active" data-filter="all" data-i18n="gallery_tag_all">الكل</button>
+          <button class="gallery-filter-btn" data-filter="campaign" data-i18n="gallery_tag_campaign">حملات التبرع</button>
+          <button class="gallery-filter-btn" data-filter="caravan" data-i18n="gallery_tag_caravan">قوافل متنقلة</button>
+          <button class="gallery-filter-btn" data-filter="awareness" data-i18n="gallery_tag_awareness">توعية وتحسيس</button>
+        </div>
+
+        <div class="gallery-grid reveal" id="gallery-container">
+          <!-- Populated dynamically via js/main.js from Firestore / LocalStorage -->
+        </div>
+
+        <!-- Gallery Pagination Controls -->
+        <nav class="gallery-pagination reveal" id="gallery-pagination" aria-label="Activities Gallery Pagination" style="display: none;">
+          <!-- Dynamically populated via js/main.js -->
+        </nav>
+      </div>
+    </section>
+
+    <!-- ========== TEAMS & INSTITUTIONS LEADERBOARD (GROUP DONATION CHALLENGE) ========== -->
+    <section id="teams-leaderboard" class="section-padding">
+      <div class="container">
+        <div class="leaderboard-header text-center">
+          <h2 class="section-title reveal"><span data-i18n="leaderboard_title">تحدي المؤسسات والفرق ببركان</span> <i class="fa-solid fa-trophy challenge-trophy" aria-hidden="true"></i></h2>
+          <p class="section-subtitle reveal" data-i18n="leaderboard_subtitle">لوحة شرف أنشط الجمعيات، المؤسسات، والمجموعات المساهمة في إنقاذ الأرواح بالإقليم</p>
+          <div class="leaderboard-cta-wrap reveal">
+            <button type="button" id="open-team-pledge-btn" class="btn btn-primary leaderboard-pledge-btn">
+              <i class="fa-solid fa-trophy challenge-trophy" aria-hidden="true"></i>
+              <span data-i18n="leaderboard_btn_pledge">سجل فريقك أو مؤسستك في التحدي</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="leaderboard-container reveal" id="leaderboard-container">
+          <!-- Populated dynamically via js/main.js from admin_leaderboard_teams in localStorage -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PARTNERS & SPONSORS ========== -->
+    <section id="partners" class="section-padding">
+      <div class="container">
+        <h2 class="section-title reveal" data-i18n="partners_title">الشركاء والداعمين</h2>
+        <p class="section-subtitle reveal" data-i18n="partners_subtitle">نعمل بتكامل وثيق مع مختلف الفاعلين المؤسساتيين والصحيين والجمعويين لإنقاذ الأرواح</p>
+
+        <div class="partners-marquee-wrapper reveal" id="partners-marquee-wrapper" dir="ltr">
+          <div class="partners-marquee-track" id="partners-container" dir="ltr">
+            <!-- Populated dynamically via js/main.js from Firestore / LocalStorage -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-brand">
+            <img src="assets/logo.png" alt="جمعية المتبرعين بالدم بإقليم بركان" width="44" height="44" loading="lazy" decoding="async" />
+            <h3 data-i18n="footer_about_title">عن الجمعية</h3>
+          </div>
+          <p data-i18n="footer_about_text">جمعية المتبرعين بالدم بإقليم بركان، جمعية غير ربحية مؤسسة سنة 2002، تعمل على نشر ثقافة التبرع بالدم وإنقاذ الأرواح بالجهة الشرقية.</p>
+          <div class="footer-social">
+            <a href="#" id="social-facebook" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" id="social-instagram" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" id="social-tiktok" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3 data-i18n="footer_links_title">روابط سريعة</h3>
+          <ul>
+            <li><a href="#hero" data-i18n="nav_home">الرئيسية</a></li>
+            <li><a href="#about" data-i18n="nav_about">من نحن</a></li>
+            <li><a href="#compatibility" data-i18n="nav_compatibility">توافق الفصائل</a></li>
+            <li><a href="#eligibility" data-i18n="nav_eligibility">اختبار الأهلية</a></li>
+            <li><a href="#campaigns" data-i18n="nav_campaigns">الحملات</a></li>
+            <li><a href="#gallery" data-i18n="nav_gallery">معرض الأنشطة</a></li>
+            <li><a href="#partners" data-i18n="nav_partners">شركاؤنا</a></li>
+            <li><a href="#register" data-i18n="nav_register">انضم إلينا</a></li>
+            <li><a href="privacy.html" data-i18n="privacy_link">سياسة الخصوصية</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 data-i18n="footer_contact_title">تواصل معنا</h3>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span data-i18n="footer_address">بركان، إقليم بركان، الجهة الشرقية، المغرب</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:+212677216964" id="footer-contact-phone"><span>+212 677 216 964</span></a>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:contact@donneursdesang-berkane.ma" id="footer-contact-email"><span>contact@donneursdesang-berkane.ma</span></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          <span data-i18n="footer_copyright">© 2026 جمعية المتبرعين بالدم بإقليم بركان. جميع الحقوق محفوظة.</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========== WHATSAPP FLOAT ========== -->
+  <a href="https://wa.me/212677216964" id="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- ========== MODAL: TEAM / INSTITUTION PLEDGE CHALLENGE ========== -->
+  <div class="pledge-modal-backdrop" id="team-pledge-modal" role="dialog" aria-modal="true" aria-labelledby="modal-team-title" style="display: none;">
+    <div class="pledge-modal-dialog">
+      <div class="pledge-modal-header">
+        <div class="pledge-modal-title-wrap">
+          <span class="pledge-modal-icon"><i class="fa-solid fa-trophy challenge-trophy" aria-hidden="true"></i></span>
+          <h3 id="modal-team-title" data-i18n="leaderboard_modal_title">تسجيل فريق أو مؤسسة في التحدي</h3>
+        </div>
+        <button type="button" class="pledge-modal-close" id="close-team-pledge-modal" aria-label="إغلاق / Fermer">&times;</button>
+      </div>
+      <p class="pledge-modal-subtitle" data-i18n="leaderboard_modal_subtitle">ساهم مع زملائك أو أعضاء جمعيتك في إنقاذ الأرواح وتصدر لوحة الشرف بإقليم بركان</p>
+      
+      <form id="team-pledge-form" class="pledge-modal-form">
+        <div class="form-group">
+          <label for="team-name" data-i18n="leaderboard_team_name">اسم الفريق أو المؤسسة *</label>
+          <input type="text" id="team-name" name="teamName" required maxlength="120" placeholder="مثال: ثانوية الليمون التأهيلية / نادي روتاراكت بركان" autocomplete="organization" />
+        </div>
+
+        <div class="form-group">
+          <label for="team-category" data-i18n="leaderboard_category">نوع المؤسسة / الفريق *</label>
+          <select id="team-category" name="category" required>
+            <option value="education" data-i18n="leaderboard_cat_education">مؤسسة تعليمية / جامعية</option>
+            <option value="association" data-i18n="leaderboard_cat_association">جمعية / منظمة مجتمع مدني</option>
+            <option value="company" data-i18n="leaderboard_cat_company">شركة / مقاولة خاصة</option>
+            <option value="youth" data-i18n="leaderboard_cat_youth">نادي رياضي / فريق شبابي</option>
+            <option value="public" data-i18n="leaderboard_cat_public">إدارة / مؤسسة عمومية</option>
+            <option value="other" data-i18n="leaderboard_cat_other">مجموعة أخرى</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="team-coordinator" data-i18n="leaderboard_coordinator">اسم منسق(ة) الفريق *</label>
+            <input type="text" id="team-coordinator" name="coordinator" required maxlength="100" placeholder="الاسم الكامل للمنسق" autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="team-phone" data-i18n="leaderboard_phone">رقم هاتف المنسق *</label>
+            <input type="tel" id="team-phone" name="phone" required maxlength="20" placeholder="06XXXXXXXX" autocomplete="tel" dir="ltr" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="team-target" data-i18n="leaderboard_target">الهدف المتوقع (عدد أكياس الدم) *</label>
+          <input type="number" id="team-target" name="targetBags" min="5" max="1000" value="30" required />
+        </div>
+
+        <div class="form-group">
+          <label for="team-notes" data-i18n="leaderboard_notes">ملاحظات أو رسالة إضافية (اختياري)</label>
+          <textarea id="team-notes" name="notes" rows="2" maxlength="600" placeholder="أي تفاصيل حول الفريق، تاريخ التبرع المفضل، أو وسائل التنسيق..."></textarea>
+        </div>
+
+        <p class="privacy-form-note"><a href="privacy.html" target="_blank" rel="noopener" data-i18n="privacy_link">سياسة الخصوصية</a></p>
+        <div class="pledge-modal-footer">
+          <button type="button" class="btn btn-outline" id="cancel-team-pledge-btn" style="min-width: 110px;">إلغاء</button>
+          <button type="submit" class="btn btn-primary" id="submit-team-pledge-btn" style="flex: 1;">
+            <i class="fa-solid fa-paper-plane" style="margin-inline-end: 6px;"></i>
+            <span data-i18n="leaderboard_submit">إرسال طلب التسجيل</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========== MODAL: ACTIVITY ARTICLE & REPORT DETAILS ========== -->
+  <div class="activity-modal-backdrop" id="activity-modal" role="dialog" aria-modal="true" aria-labelledby="modal-activity-title" style="display: none;">
+    <div class="activity-modal-dialog">
+      <div class="activity-modal-header">
+        <div class="activity-modal-meta">
+          <span class="gallery-card-tag" id="modal-activity-tag">نشاط</span>
+          <span class="activity-modal-date" id="modal-activity-date"></span>
+        </div>
+        <button type="button" class="activity-modal-close" id="close-activity-modal" aria-label="إغلاق / Fermer">&times;</button>
+      </div>
+
+      <div class="activity-modal-image-wrap">
+        <img id="modal-activity-img" src="assets/logo.png" alt="Activity Image" loading="lazy" decoding="async" />
+      </div>
+
+      <div class="activity-modal-body">
+        <h3 id="modal-activity-title" class="activity-modal-title"></h3>
+        <div id="modal-activity-desc" class="activity-modal-desc"></div>
+      </div>
+
+      <div class="activity-modal-footer">
+        <button type="button" class="btn btn-outline" id="btn-close-activity-modal">
+          <span>إغلاق / Fermer</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== TOAST CONTAINER ========== -->
+  <dialog id="registration-success-dialog" class="registration-success-dialog" aria-labelledby="registration-success-title" aria-describedby="registration-success-description">
+    <div class="registration-success-content">
+      <span class="registration-success-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 4 4L19 6" /></svg>
+      </span>
+      <h2 id="registration-success-title" data-i18n="registration_success_donor_title">تم استلام طلب التبرع بنجاح</h2>
+      <p id="registration-success-description" data-i18n="registration_success_description">شكراً لمبادرتك. ستراجع إدارة الجمعية المعلومات التي أرسلتها، وتتواصل معك عند الحاجة لتنسيق مشاركتك. لا حاجة إلى إعادة إرسال الطلب.</p>
+      <form method="dialog"><button type="submit" class="btn btn-primary" data-i18n="registration_success_acknowledge">فهمت</button></form>
+    </div>
+  </dialog>
+  <div id="toast-container"></div>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script src="js/ui-icons.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/brand-logos.js"></script>
+  <script type="module" src="js/firebase-config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

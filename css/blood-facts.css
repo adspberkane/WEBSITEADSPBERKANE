@@ -1,0 +1,33 @@
+/* Original tabs, with interaction inspiration from Animate UI; no library dependency. */
+.facts-intro { max-width: 800px; margin-bottom: 28px; }
+.facts-intro .faq-eyebrow { letter-spacing: 0; }
+.facts-intro h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+.facts-tabs { position: relative; isolation: isolate; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; width: min(100%, 560px); margin: 0 auto 36px; padding: 6px; border: 1px solid var(--faq-line); border-radius: 18px; background: color-mix(in srgb, var(--faq-line) 40%, transparent); }
+.facts-tabs button { position: relative; z-index: 1; min-width: 0; min-height: 54px; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px; border: 0; border-radius: 12px; background: transparent; color: var(--faq-muted); font-size: .9rem; font-weight: 700; line-height: 1.6; transition: color .2s ease; }
+.facts-tabs button[aria-selected="true"] { color: var(--faq-accent); }
+.facts-tab-count { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; flex: 0 0 24px; border-radius: 7px; background: var(--faq-soft); color: var(--faq-accent); font-size: .7rem; }
+.facts-tab-indicator { position: absolute; left: 0; z-index: 0; border-radius: 12px; background: var(--faq-surface); box-shadow: 0 3px 12px #1719230a; transition: transform .38s cubic-bezier(.22,.85,.25,1), width .38s cubic-bezier(.22,.85,.25,1), height .2s ease; pointer-events: none; }
+.facts-panel:not([hidden]) { animation: facts-panel-in .24s ease both; }
+.facts-panel:focus-visible { outline: 2px solid var(--faq-accent); outline-offset: 8px; border-radius: 12px; }
+#donation-questions { max-width: 860px; margin: auto; }
+.facts-question-group + .facts-question-group { margin-top: 28px; }
+.facts-group-heading { font-size: .85rem; color: var(--faq-muted); font-weight: 600; display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.facts-group-heading::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--faq-accent); opacity: .65; }
+.facts-question-list { display: grid; gap: 12px; }
+.facts-source { display: inline-flex; align-items: center; gap: 8px; color: var(--faq-accent); text-decoration: underline; text-underline-offset: 4px; font-size: .76rem; line-height: 1.8; font-weight: 600; }
+.facts-myth-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: start; }
+.facts-myth-card { min-width: 0; border: 1px solid var(--faq-line); border-radius: 20px; background: var(--faq-surface); overflow: hidden; }
+.facts-myth-header { padding: 22px 24px 18px; background: color-mix(in srgb, var(--faq-soft) 60%, var(--faq-surface)); border-bottom: 1px solid var(--faq-line); }
+.facts-myth-label { display: block; margin-bottom: 10px; color: var(--faq-muted); font-size: .7rem; font-weight: 600; }
+.facts-myth-header h2 { font-size: 1rem; line-height: 1.9; font-weight: 700; }
+.facts-truth { padding: 20px 24px 24px; }
+.facts-truth-label { display: inline-flex; align-items: center; gap: 8px; color: #147849; font-size: .8rem; font-weight: 800; margin-bottom: 12px; }
+.facts-truth-label svg { width: 19px; height: 19px; }
+.facts-truth p { color: var(--faq-muted); font-size: .88rem; line-height: 2; margin-bottom: 14px; }
+[data-theme="dark"] .facts-truth-label { color: #91e0b2; }
+.facts-guidance { max-width: 860px; margin: 32px auto 0; padding: 20px 24px; border: 1px solid var(--faq-line); border-radius: 14px; color: var(--faq-muted); font-size: .78rem; line-height: 1.9; }
+.facts-guidance p + p { font-size: .7rem; margin-top: 8px; }
+@keyframes facts-panel-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 700px) { .facts-myth-grid { grid-template-columns: 1fr; gap: 16px; } }
+@media (max-width: 380px) { .facts-tabs button { font-size: .78rem; gap: 6px; padding: 10px 8px; } .facts-tab-count { width: 20px; height: 20px; flex-basis: 20px; } .facts-myth-header, .facts-truth { padding: 18px; } }
+@media (prefers-reduced-motion: reduce) { .facts-tab-indicator { transition: none; } .facts-panel:not([hidden]) { animation: none; } }

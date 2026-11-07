@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="أجوبة حول التسجيل والخصوصية والمشاركة في موقع جمعية المتبرعين بالدم بإقليم بركان." />
+  <title>الأسئلة الشائعة | متبرعو بركان</title>
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/resources.css" />
+  <link rel="stylesheet" href="css/faq.css" />
+  <script src="js/i18n.js" defer></script>
+  <script src="js/brand-logos.js" defer></script>
+  <script src="js/resource-pages.js" defer></script>
+  <script src="js/faq.js" defer></script>
+</head>
+<body class="resource-page faq-page">
+  <header class="resource-page-header">
+    <a class="resource-page-brand" href="index.html"><img src="assets/logo.png" alt="" width="44" height="44" /><span data-i18n="nav_logo_text">متبرعو بركان</span></a>
+    <nav aria-label="Language / اللغة"><button type="button" data-lang="ar" lang="ar">العربية</button><button type="button" data-lang="fr" lang="fr">Français</button></nav>
+  </header>
+  <main class="faq-main">
+    <a class="faq-back" href="index.html#resources"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6" /></svg><span data-i18n="resources_back">العودة إلى الرئيسية</span></a>
+    <div class="faq-intro">
+      <span class="faq-eyebrow">FAQ</span>
+      <h1 data-i18n="resources_faq_title">الأسئلة الشائعة</h1>
+      <p data-faq-text="intro">إجابات واضحة حول التسجيل، خصوصيتك وطرق المشاركة مع الجمعية.</p>
+      <div class="faq-search-wrap" role="search">
+        <label class="faq-sr-only" for="faq-search" data-faq-text="searchLabel">البحث في الأسئلة والأجوبة</label>
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m16 16 4 4" /></svg>
+        <input id="faq-search" type="search" maxlength="120" autocomplete="off" placeholder="ابحث عن سؤالك…" aria-controls="faq-list" />
+      </div>
+    </div>
+    <div class="faq-layout">
+      <aside class="faq-sidebar">
+        <p class="faq-category-label" data-faq-text="browse">تصفّح حسب الموضوع</p>
+        <nav class="faq-categories" id="faq-categories" aria-label="مواضيع الأسئلة الشائعة"></nav>
+        <a class="faq-privacy-link" href="privacy.html"><span data-i18n="privacy_link">سياسة الخصوصية</span><span aria-hidden="true">↗</span></a>
+      </aside>
+      <div class="faq-results">
+        <p id="faq-result-count" class="faq-result-count" role="status" aria-live="polite" aria-atomic="true"></p>
+        <div id="faq-list" class="faq-list"></div>
+        <div id="faq-empty" class="faq-empty" hidden>
+          <h2 data-faq-text="emptyTitle">لم نعثر على سؤال مطابق</h2>
+          <p data-faq-text="emptyDescription">جرّب كلمات أخرى أو اعرض جميع الأسئلة.</p>
+          <button type="button" id="faq-reset" data-faq-text="reset">عرض جميع الأسئلة</button>
+        </div>
+      </div>
+    </div>
+    <noscript><p class="faq-noscript">يرجى تفعيل JavaScript لعرض الأسئلة والبحث فيها. / Activez JavaScript pour consulter les questions.</p></noscript>
+  </main>
+</body>
+</html>
