@@ -8,6 +8,10 @@
  */
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+import {
+  initializeAppCheck,
+  ReCaptchaEnterpriseProvider
+} from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app-check.js";
 import { 
   getFirestore, 
   collection, 
@@ -79,13 +83,17 @@ export function isFirebaseConfigured() {
          !firebaseConfig.apiKey.includes("YOUR_FIREBASE_API_KEY");
 }
 
-// Initialize Firebase App, Firestore & Auth
+// Initialize App Check before Firestore and Auth so their requests include tokens.
 let app = null;
 let db = null;
 let auth = null;
 
 try {
   app = initializeApp(firebaseConfig);
+  initializeAppCheck(app, {
+    provider: new ReCaptchaEnterpriseProvider("6LfMoBYuAAAAAN7QvLjW46T3WaOmJksJdLXWk2nN"),
+    isTokenAutoRefreshEnabled: true
+  });
   db = getFirestore(app);
   auth = getAuth(app);
 } catch (e) {
