@@ -4215,6 +4215,8 @@ html[lang="fr"] body.site-home .hero-title {
 .site-home .hero-buttons .btn-white:hover { background: var(--home-red-dark); }
 .site-home .hero-buttons .btn-outline { color: var(--home-red-dark); border-color: #c9a9a4; }
 .site-home .hero-buttons .btn-outline:hover { background: #fff; border-color: var(--home-red); }
+html:not([data-theme="dark"]) .site-home .hero-buttons .btn-outline { background: #fff; border-color: var(--home-red); }
+html:not([data-theme="dark"]) .site-home .hero-buttons .btn-outline:hover { background: #fff1f3; border-color: var(--home-red-dark); }
 .site-home .hero-campaign-link {
   display: inline-flex;
   align-items: center;
