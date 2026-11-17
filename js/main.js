@@ -2703,13 +2703,6 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
 
-        // Smooth scroll to the simulator dashboard to view the stage visually
-        const simEl = document.getElementById('recovery-simulator');
-        if (simEl) {
-          const navHeight = 70;
-          const targetPos = simEl.getBoundingClientRect().top + window.pageYOffset - navHeight - 10;
-          window.scrollTo({ top: targetPos, behavior: 'smooth' });
-        }
       }
     });
   }
