@@ -1754,27 +1754,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Marquee hover and touch pause/resume controller
-  const marqueeWrapper = document.getElementById('partners-marquee-wrapper');
-  if (marqueeWrapper) {
-    marqueeWrapper.addEventListener('mouseenter', () => {
-      const track = document.getElementById('partners-container');
-      if (track) track.style.animationPlayState = 'paused';
-    });
-    marqueeWrapper.addEventListener('mouseleave', () => {
-      const track = document.getElementById('partners-container');
-      if (track) track.style.animationPlayState = 'running';
-    });
-    marqueeWrapper.addEventListener('touchstart', () => {
-      const track = document.getElementById('partners-container');
-      if (track) track.style.animationPlayState = 'paused';
-    }, { passive: true });
-    marqueeWrapper.addEventListener('touchend', () => {
-      const track = document.getElementById('partners-container');
-      if (track) track.style.animationPlayState = 'running';
-    }, { passive: true });
-  }
-
   function initPartnersCloudSync() {
     if (window.BloodDonorsFirebase && typeof window.BloodDonorsFirebase.subscribeToPartners === 'function') {
       window.BloodDonorsFirebase.subscribeToPartners((items) => {
