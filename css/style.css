@@ -121,7 +121,9 @@
     }
 
     @media (min-width: 992px) {
-      #partners .section-subtitle {
+      #partners .section-subtitle,
+      html[lang="ar"] #teams-leaderboard .section-subtitle,
+      html[lang="ar"] #recovery-simulator .section-subtitle {
         max-width: none;
         white-space: nowrap;
       }
