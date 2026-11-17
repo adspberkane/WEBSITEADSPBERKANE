@@ -2683,8 +2683,10 @@
   will-change: transform;
 }
 
-.partners-marquee-wrapper:hover .partners-marquee-track {
-  animation-play-state: paused !important;
+@media (hover: hover) and (pointer: fine) {
+  .partners-marquee-wrapper:hover .partners-marquee-track {
+    animation-play-state: paused !important;
+  }
 }
 
 @keyframes marquee {
