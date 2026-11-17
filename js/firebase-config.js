@@ -9,6 +9,11 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
 import {
+  normalizeSubmissionPhone,
+  submissionFingerprint,
+  checkSubmissionWindow
+} from './submission-policy.js';
+import {
   initializeAppCheck,
   ReCaptchaEnterpriseProvider
 } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app-check.js";
@@ -32,6 +37,7 @@ import {
   getAuth, 
   signInWithEmailAndPassword, 
   signOut, 
+  signInAnonymously,
   onAuthStateChanged 
 } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
 
@@ -170,12 +176,66 @@ export function createSubmissionId() {
   return doc(collection(db, DONORS_COLLECTION)).id;
 }
 
+// Keep visitor authentication separate from the administrator's session.
+let submissionServicesPromise;
+function getSubmissionServices() {
+  if (!submissionServicesPromise) {
+    submissionServicesPromise = (async () => {
+      const visitorApp = initializeApp(firebaseConfig, 'public-submissions');
+      initializeAppCheck(visitorApp, {
+        provider: new ReCaptchaEnterpriseProvider('6LfMoBYuAAAAAN7QvLjW46T3WaOmJksJdLXWk2nN'),
+        isTokenAutoRefreshEnabled: true
+      });
+      const visitorAuth = getAuth(visitorApp);
+      await visitorAuth.authStateReady();
+      return { auth: visitorAuth, db: getFirestore(visitorApp) };
+    })();
+  }
+  return submissionServicesPromise;
+}
+
+async function savePublicSubmission(collectionName, payload, submissionId) {
+  const services = await getSubmissionServices();
+  // Concurrent forms share a single sign-in attempt.
+  if (!services.auth.currentUser) {
+    if (!services.signIn) {
+      services.signIn = signInAnonymously(services.auth).finally(() => { services.signIn = null; });
+    }
+    await services.signIn;
+  }
+  const uid = services.auth.currentUser.uid;
+  const key = await submissionFingerprint(collectionName, payload);
+  const target = submissionId ? doc(services.db, collectionName, submissionId)
+    : doc(collection(services.db, collectionName));
+  const limitRef = doc(services.db, 'submission_limits', uid);
+  const duplicateRef = doc(services.db, 'submission_duplicates', uid, 'entries', key);
+  await runTransaction(services.db, async transaction => {
+    const limit = await transaction.get(limitRef);
+    const duplicate = await transaction.get(duplicateRef);
+    // A lost success response can be retried without creating another request.
+    if (duplicate.exists() && duplicate.data().submissionId === target.id &&
+        duplicate.data().collectionName === collectionName) return;
+    checkSubmissionWindow(limit.exists() ? limit.data() : null,
+      duplicate.exists() ? duplicate.data() : null);
+    const receipt = {
+      collectionName,
+      submissionId: target.id,
+      duplicateKey: key,
+      submittedAt: serverTimestamp()
+    };
+    transaction.set(target, { ...payload, ownerUid: uid, timestamp: serverTimestamp() });
+    transaction.set(limitRef, receipt);
+    transaction.set(duplicateRef, receipt);
+  });
+  return { id: target.id, isLocal: false, ...payload };
+}
+
 export async function addRegistration(data, submissionId) {
   const nowIso = new Date().toISOString();
 
   const payload = {
     fullname: (data.fullname || "").trim(),
-    phone: (data.phone || "").trim(),
+    phone: normalizeSubmissionPhone(data.phone),
     city: (data.city || data.district || "بركان").trim(),
     bloodGroup: (data.bloodGroup || data.bloodgroup || "N/A").trim(),
     category: data.category === "volunteer" ? "volunteer" : "donor",
@@ -200,12 +260,7 @@ export async function addRegistration(data, submissionId) {
   }
 
   try {
-    const docRef = submissionId ? doc(db, DONORS_COLLECTION, submissionId) : doc(collection(db, DONORS_COLLECTION));
-    await setDoc(docRef, {
-      ...payload,
-      timestamp: serverTimestamp()
-    });
-    return { id: docRef.id, isLocal: false, ...payload };
+    return await savePublicSubmission(DONORS_COLLECTION, payload, submissionId);
   } catch (error) {
     console.warn("[Firebase] Registration failed:", error.message);
     throw error;
@@ -1023,7 +1078,7 @@ export async function addTeamRequest(data, submissionId) {
     teamName: (data.teamName || data.name || '').trim(),
     category: data.category || 'other',
     coordinator: (data.coordinator || '').trim(),
-    phone: (data.phone || '').trim(),
+    phone: normalizeSubmissionPhone(data.phone),
     targetBags: Number(data.targetBags) || 30,
     notes: (data.notes || '').trim(),
     status: data.status || 'pending',
@@ -1036,12 +1091,7 @@ export async function addTeamRequest(data, submissionId) {
   }
 
   try {
-    const docRef = submissionId ? doc(db, TEAM_REQUESTS_COLLECTION, submissionId) : doc(collection(db, TEAM_REQUESTS_COLLECTION));
-    await setDoc(docRef, {
-      ...payload,
-      timestamp: serverTimestamp()
-    });
-    return { id: docRef.id, isLocal: false, ...payload };
+    return await savePublicSubmission(TEAM_REQUESTS_COLLECTION, payload, submissionId);
   } catch (error) {
     console.warn("[Firebase] Team request failed:", error.message);
     throw error;

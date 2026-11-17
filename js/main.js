@@ -938,6 +938,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const pendingTimers = new WeakMap();
   const submissionAttempts = new WeakMap();
 
+  function showSubmissionError(error) {
+    const french = getCurrentLang() === 'fr';
+    if (error.code === 'submission/duplicate') {
+      showToast(french
+        ? 'Cette demande a déjà été envoyée. Veuillez attendre 24 heures avant de la renvoyer.'
+        : 'سبق إرسال نفس الطلب. يرجى الانتظار 24 ساعة قبل إعادة إرساله.', 'error');
+    } else if (error.code === 'submission/rate-limited') {
+      showToast(french
+        ? 'Un seul envoi toutes les 10 minutes est autorisé. Veuillez patienter.'
+        : 'يمكن إرسال طلب واحد كل 10 دقائق. يرجى الانتظار قبل إرسال طلب آخر.', 'error');
+    } else {
+      showToast('toast_error_general', 'error');
+    }
+  }
+
   function submissionIdFor(form, data) {
     const fingerprint = JSON.stringify(data);
     const previous = submissionAttempts.get(form);
@@ -1024,7 +1039,7 @@ document.addEventListener('DOMContentLoaded', () => {
         submissionAttempts.delete(donorForm);
       } catch (err) {
         console.warn('[DonorForm] Registration failed:', err);
-        showToast('toast_error_general', 'error');
+        showSubmissionError(err);
         return;
       } finally {
         setFormPending(donorForm, false);
@@ -1071,7 +1086,7 @@ document.addEventListener('DOMContentLoaded', () => {
         submissionAttempts.delete(volunteerForm);
       } catch (err) {
         console.warn('[VolunteerForm] Registration failed:', err);
-        showToast('toast_error_general', 'error');
+        showSubmissionError(err);
         return;
       } finally {
         setFormPending(volunteerForm, false);
@@ -2402,7 +2417,7 @@ document.addEventListener('DOMContentLoaded', () => {
         submissionAttempts.delete(pledgeForm);
       } catch (err) {
         console.warn('Error saving team request:', err);
-        showToast('toast_error_general', 'error');
+        showSubmissionError(err);
         return;
       } finally {
         setFormPending(pledgeForm, false);
