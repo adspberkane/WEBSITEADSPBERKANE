@@ -1822,6 +1822,11 @@
       color: #fff;
     }
 
+    #footer-contact-phone {
+      direction: ltr;
+      unicode-bidi: isolate;
+    }
+
     .footer-contact-item i,
     .footer-contact-item .fa-location-dot,
     .footer-contact-item .fa-phone,
