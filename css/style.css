@@ -120,6 +120,13 @@
       margin: 0 auto 48px;
     }
 
+    @media (min-width: 992px) {
+      #partners .section-subtitle {
+        max-width: none;
+        white-space: nowrap;
+      }
+    }
+
     /* ============================
        EMERGENCY BANNER
     ============================ */
