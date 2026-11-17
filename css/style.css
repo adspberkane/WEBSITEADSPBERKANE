@@ -1334,6 +1334,10 @@
       color: #fff;
     }
 
+    .compat-badge.badge-all:hover {
+      color: #fff;
+    }
+
     .quiz-result-title {
       font-size: 1.2rem;
       margin-bottom: 8px;
@@ -4032,6 +4036,133 @@ html[lang="fr"] .partner-card-desc {
   gap: 8px;
 }
 
+/* Adapted from https://uiverse.io/StealthWorm/spotty-horse-48
+ * Copyright - 2026 StealthWorm (thierry)
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+#btn-check-recovery {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  justify-content: center;
+  min-width: min(13rem, 100%);
+  max-width: 100%;
+  min-height: 3rem;
+  padding: 8px 24px;
+  border: 4px double transparent;
+  border-radius: 5rem;
+  color: #fff;
+  background-color: #212121;
+  background-image: linear-gradient(#212121, #212121),
+    linear-gradient(137.48deg, #ffdb3b 10%, #fe53bb 45%, #8f51ea 67%, #0044ff 87%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  background-size: 300% 300%;
+  animation: recovery-button-gradient 5s ease infinite;
+  transition: transform .5s, box-shadow .5s;
+  touch-action: manipulation;
+}
+#btn-check-recovery > :is(i, svg, [data-i18n]) {
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 0 4px rgba(255, 255, 255, .5);
+}
+#btn-check-recovery > .recovery-button-stars {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
+  transition: background-color .5s;
+}
+#btn-check-recovery .recovery-button-stars::before,
+#btn-check-recovery .recovery-button-stars::after {
+  content: '';
+  position: absolute;
+  inset: -250% -50%;
+  background-image: radial-gradient(#fff 1px, transparent 1.5px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+#btn-check-recovery .recovery-button-stars::before {
+  opacity: .5;
+  animation: recovery-button-stars-drift 60s linear infinite;
+}
+#btn-check-recovery .recovery-button-stars::after {
+  animation: recovery-button-stars-rotate 90s linear infinite;
+}
+#btn-check-recovery > .recovery-button-glow {
+  position: absolute;
+  inset-inline: 6%;
+  top: 25%;
+  height: 30px;
+  display: flex;
+  z-index: 0;
+  pointer-events: none;
+}
+#btn-check-recovery .recovery-button-glow > span {
+  flex: 1;
+  height: 30px;
+  filter: blur(2rem);
+  background: rgba(254, 83, 186, .636);
+  animation: recovery-button-pulse 4s ease infinite;
+}
+#btn-check-recovery .recovery-button-glow > span + span {
+  background: rgba(142, 81, 234, .704);
+}
+#btn-check-recovery:is(:hover, :focus-visible) {
+  color: #fff;
+  background-color: #212121;
+  box-shadow: 0 0 22px rgba(142, 81, 234, .2);
+  transform: none;
+}
+#btn-check-recovery:is(:hover, :focus-visible) > .recovery-button-stars {
+  background-color: #212121;
+}
+@media (hover: hover) and (pointer: fine) {
+  #btn-check-recovery:hover { transform: scale(1.1); }
+}
+#btn-check-recovery:active {
+  border-color: #fe53bb;
+  animation-play-state: paused;
+  transform: scale(.98);
+}
+#btn-check-recovery:active .recovery-button-glow > span { background: #fe53bb; }
+@keyframes recovery-button-gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@keyframes recovery-button-stars-drift {
+  from { transform: translateY(0); }
+  to { transform: translateY(-160px); }
+}
+@keyframes recovery-button-stars-rotate {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0); }
+}
+@keyframes recovery-button-pulse {
+  0%, 100% { transform: scale(.75); }
+  70% { transform: scale(1); }
+}
+
 .calc-result {
   margin-top: 20px;
   padding: 18px 22px;
@@ -4217,6 +4348,62 @@ html[lang="fr"] body.site-home .hero-title {
 .site-home .hero-buttons .btn-outline:hover { background: #fff; border-color: var(--home-red); }
 html:not([data-theme="dark"]) .site-home .hero-buttons .btn-outline { background: #fff; border-color: var(--home-red); }
 html:not([data-theme="dark"]) .site-home .hero-buttons .btn-outline:hover { background: #fff1f3; border-color: var(--home-red-dark); }
+
+/* Button 78's inset-layer interaction, using the existing hero button palette. */
+.site-home #hero .hero-buttons > .btn {
+  position: relative;
+  isolation: isolate;
+  z-index: 0;
+}
+.site-home #hero .hero-buttons > .btn-white {
+  --hero-button-surface: var(--home-red);
+  --hero-button-hover: var(--home-red-dark);
+}
+.site-home #hero .hero-buttons > .btn-outline {
+  --hero-button-surface: #fff;
+  --hero-button-hover: #fff1f3;
+}
+html[data-theme="dark"] .site-home #hero .hero-buttons > .btn-outline {
+  --hero-button-surface: transparent;
+  --hero-button-hover: #57383b;
+}
+.site-home #hero .hero-buttons > .btn::before,
+.site-home #hero .hero-buttons > .btn::after {
+  content: '';
+  position: absolute;
+  border-radius: inherit;
+  pointer-events: none;
+}
+.site-home #hero .hero-buttons > .btn::before {
+  inset: 0;
+  z-index: -2;
+  background: var(--hero-button-hover);
+  opacity: 0;
+  transition: opacity 100ms ease-out;
+}
+.site-home #hero .hero-buttons > .btn::after {
+  inset: 4px;
+  z-index: -1;
+  background: var(--hero-button-surface);
+  opacity: 1;
+  transition: inset 100ms ease-out, opacity 100ms ease-out;
+}
+.site-home #hero .hero-buttons > .btn:is(:hover, :focus-visible) {
+  transform: none;
+}
+.site-home #hero .hero-buttons > .btn:is(:hover, :focus-visible)::before {
+  opacity: 1;
+}
+.site-home #hero .hero-buttons > .btn:is(:hover, :focus-visible)::after {
+  inset: 0;
+  opacity: 0;
+  transition-timing-function: ease-in;
+}
+.site-home #hero .hero-buttons > .btn:active::after {
+  inset: 4px;
+  opacity: 1;
+}
+
 .site-home .hero-campaign-link {
   display: inline-flex;
   align-items: center;
