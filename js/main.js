@@ -2121,6 +2121,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
+      // Official postal address; an empty setting keeps the translated default.
+      const addressEl = document.getElementById('footer-contact-address');
+      if (addressEl) {
+        const address = getCurrentLang() === 'fr'
+          ? data.addressFr
+          : (data.addressAr ?? data.address);
+        addressEl.textContent = (address || '').trim() || translate('footer_address');
+      }
+
       // 6. Official Email Address
       const emailEl = document.getElementById('footer-contact-email');
       if (emailEl && data.email && data.email.trim()) {

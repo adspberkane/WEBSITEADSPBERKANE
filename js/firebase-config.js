@@ -1180,7 +1180,9 @@ export const DEFAULT_SOCIAL_LINKS = {
   tiktok: 'https://tiktok.com',
   whatsapp: '212677216964',
   phone: '+212 677 216 964',
-  email: 'contact@donneursdesang-berkane.ma'
+  email: 'contact@donneursdesang-berkane.ma',
+  addressAr: '',
+  addressFr: ''
 };
 
 export function getLocalSocialLinks() {
@@ -1201,6 +1203,8 @@ export async function saveSocialLinks(linksData) {
     whatsapp: (linksData.whatsapp || '').trim(),
     phone: (linksData.phone || '').trim(),
     email: (linksData.email || '').trim(),
+    addressAr: (linksData.addressAr ?? linksData.address ?? '').trim(),
+    addressFr: (linksData.addressFr || '').trim(),
     updatedAt: new Date().toISOString()
   };
 
