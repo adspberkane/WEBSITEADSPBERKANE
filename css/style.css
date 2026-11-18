@@ -3562,6 +3562,54 @@ html[lang="fr"] .partner-card-desc {
 #recovery-simulator {
   background: var(--bg-card);
   position: relative;
+  isolation: isolate;
+}
+
+/* Decorative dots confined to the recovery section. */
+#recovery-simulator .recovery-glow-dots {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  opacity: .63;
+}
+
+#recovery-simulator .recovery-glow-dot {
+  position: absolute;
+  left: var(--dot-left);
+  top: var(--dot-top);
+  width: var(--dot-size);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #369918;
+  box-shadow: 0 0 0 3px rgba(54, 153, 24, .15),
+              0 0 9px rgba(54, 153, 24, .3);
+  transform: translate(-50%, -50%);
+  opacity: .65;
+  animation: recovery-dot-twinkle var(--dot-duration) ease-in-out infinite;
+  animation-delay: var(--dot-delay);
+}
+
+@keyframes recovery-dot-twinkle {
+  0%, 18%, 85%, 100% {
+    transform: translate(-50%, -50%) scale(.75);
+    opacity: 0;
+  }
+  45%, 55% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: .95;
+  }
+}
+
+#recovery-simulator .recovery-glow-dots.is-paused .recovery-glow-dot {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #recovery-simulator .recovery-glow-dot {
+    animation: none;
+  }
 }
 
 .recovery-header {
