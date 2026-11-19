@@ -4621,3 +4621,22 @@ html[data-theme="dark"] body.site-home #campaigns { background: var(--section-wh
 .registration-success-content p { color: var(--text-secondary); line-height: 1.9; margin-bottom: 24px; }
 .registration-success-content .btn { width: 100%; justify-content: center; min-height: 48px; }
 [data-theme="dark"] .registration-success-icon { background: #173d2b; color: #91e0b2; }
+
+/* Association registration details and transparency page */
+html[lang="ar"] .legal-fr, html[lang="fr"] .legal-ar { display: none; }
+.association-ids { margin: 14px 0 18px; }
+.footer-col .association-ids p { color: #d6d6d6; font-size: .88rem; line-height: 1.7; margin: 4px 0; }
+.association-ids bdi, .legal-resource-footer bdi { unicode-bidi: isolate; white-space: nowrap; }
+.legal-section { background: var(--section-white, var(--bg)); min-height: 50vh; }
+.legal-container { max-width: 850px; }
+.legal-intro { text-align: center; font-size: 1.3rem; font-weight: 800; margin: 0 0 8px; }
+.legal-alternate { text-align: center; color: var(--text-light); margin-bottom: 32px; }
+.legal-details { display: grid; gap: 14px; }
+.legal-details > div { padding: 20px 24px; background: var(--bg-card, var(--bg)); border: 1px solid var(--border); border-radius: 16px; }
+.legal-details dt { font-weight: 700; margin-bottom: 6px; }
+.legal-details dd { margin: 0; font-size: 1.08rem; overflow-wrap: anywhere; }
+.legal-details a, .legal-contact a { color: var(--primary); }
+.legal-contact { text-align: center; margin-top: 28px; }
+.legal-resource-footer { background: #1a1a1a; color: #d6d6d6; padding: 28px 20px; text-align: center; font-size: .9rem; line-height: 1.8; }
+.legal-resource-footer a { color: #fff; font-weight: 700; }
+.legal-resource-footer p { margin: 4px 0; }
