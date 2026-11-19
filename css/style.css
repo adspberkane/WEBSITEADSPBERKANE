@@ -4640,3 +4640,14 @@ html[lang="ar"] .legal-fr, html[lang="fr"] .legal-ar { display: none; }
 .legal-resource-footer { background: #1a1a1a; color: #d6d6d6; padding: 28px 20px; text-align: center; font-size: .9rem; line-height: 1.8; }
 .legal-resource-footer a { color: #fff; font-weight: 700; }
 .legal-resource-footer p { margin: 4px 0; }
+
+/* Association identifiers beside the upcoming campaign link */
+.site-home .hero-info-row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-block-start: 18px; }
+.site-home .hero-info-row .hero-campaign-link { margin-block-start: 0; }
+.site-home .hero-association-id { display: grid; gap: 3px; padding: 10px 16px; color: var(--home-red-dark); background: rgba(255,255,255,.84); border: 1px solid rgba(177, 26, 42, .2); border-radius: 14px; text-align: start; text-decoration: none; line-height: 1.5; box-shadow: 0 6px 18px rgba(82,35,35,.08); }
+.site-home .hero-association-id:hover { border-color: var(--home-red); }
+.site-home .hero-id-heading { font-weight: 800; font-size: .9rem; }
+.site-home .hero-id-line { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 8px; font-size: .82rem; }
+.site-home .hero-id-line bdi { font-weight: 700; white-space: nowrap; }
+html[data-theme="dark"] body.site-home .hero-association-id { color: #ffe7e4; background: #3c292b; border-color: #705152; }
+@media (max-width: 1024px) { .site-home .hero-info-row { justify-content: center; } }
