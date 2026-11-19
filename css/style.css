@@ -4683,3 +4683,14 @@ html[data-theme="dark"] body.site-home .hero-association-id { color: #ffe7e4; ba
 .site-home .about-legal-link { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 8px 18px; margin: 4px 0 28px; border: 1px solid var(--primary); border-radius: 999px; color: var(--primary); font-weight: 700; text-decoration: none; transition: background .2s ease, color .2s ease; }
 .site-home .about-legal-link:hover, .site-home .about-legal-link:focus-visible { background: var(--primary); color: #fff; }
 @media (max-width: 600px) { .site-home .about-content p { font-size: 1rem; line-height: 1.9; } }
+
+/* Upcoming campaign details */
+.campaign-details-link { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; margin-top: 24px; padding: 9px 18px; color: #fff; border: 1px solid rgba(255,255,255,.8); border-radius: 999px; font-weight: 700; text-decoration: none; }
+.campaign-details-link:hover, .campaign-details-link:focus-visible { background: rgba(255,255,255,.16); color: #fff; }
+.campaign-detail-card { max-width: 720px; margin-inline: auto; }
+.campaign-page-status { font-size: 1.1rem; line-height: 1.8; }
+.campaign-detail-label { margin: 20px 0 4px; font-weight: 700; opacity: .85; }
+.campaign-page-back { text-align: center; margin-top: 24px; }
+.campaign-page-back a { color: var(--primary); font-weight: 700; }
+
+.campaign-retry[hidden] { display: none; }
