@@ -4651,3 +4651,26 @@ html[lang="ar"] .legal-fr, html[lang="fr"] .legal-ar { display: none; }
 .site-home .hero-id-line bdi { font-weight: 700; white-space: nowrap; }
 html[data-theme="dark"] body.site-home .hero-association-id { color: #ffe7e4; background: #3c292b; border-color: #705152; }
 @media (max-width: 1024px) { .site-home .hero-info-row { justify-content: center; } }
+
+/* Keep slide captions clear of the navigation dots. */
+.site-home #hero .hero-container { max-width: 1320px; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); }
+.site-home .hero-slider { max-width: 650px; }
+.site-home .hero-slide-caption {
+  bottom: 46px;
+  max-height: 38%;
+  overflow-y: auto;
+  overflow-wrap: anywhere;
+  padding: 14px 22px;
+  background: rgba(0, 0, 0, .78);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.site-home .hero-slider-dots { bottom: 9px; max-width: 90%; overflow-x: auto; }
+.site-home .hero-slider-dot { flex-shrink: 0; }
+@media (max-width: 1024px) {
+  .site-home #hero .hero-container { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 768px) {
+  .site-home .hero-slide-caption { bottom: 42px; padding: 10px 15px; font-size: .95rem; }
+  .site-home .hero-slider-dots { bottom: 7px; }
+}
