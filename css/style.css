@@ -4653,15 +4653,16 @@ html[data-theme="dark"] body.site-home .hero-association-id { color: #ffe7e4; ba
 @media (max-width: 1024px) { .site-home .hero-info-row { justify-content: center; } }
 
 /* Keep slide captions clear of the navigation dots. */
-.site-home #hero .hero-container { max-width: 1320px; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr); }
-.site-home .hero-slider { max-width: 650px; }
+.site-home #hero .hero-container { max-width: 1380px; grid-template-columns: minmax(0, .9fr) minmax(0, 1.45fr); }
+.site-home .hero-slider { max-width: 740px; }
 .site-home .hero-slide-caption {
   bottom: 46px;
   max-height: 38%;
   overflow-y: auto;
   overflow-wrap: anywhere;
   padding: 14px 22px;
-  background: rgba(0, 0, 0, .78);
+  background: linear-gradient(to top, rgba(0, 0, 0, .66), rgba(0, 0, 0, .22) 70%, transparent);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, .95), 0 1px 10px rgba(0, 0, 0, .8);
   font-size: 1rem;
   line-height: 1.6;
 }
