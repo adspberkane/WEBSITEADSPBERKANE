@@ -4675,3 +4675,11 @@ html[data-theme="dark"] body.site-home .hero-association-id { color: #ffe7e4; ba
   .site-home .hero-slide-caption { bottom: 42px; padding: 10px 15px; font-size: .95rem; }
   .site-home .hero-slider-dots { bottom: 7px; }
 }
+
+/* Readable association introduction and link to its legal details. */
+.site-home .about-content { max-width: 800px; }
+.site-home .about-content p { line-height: 1.95; margin: 0 0 20px; text-wrap: pretty; }
+.site-home .about-content .about-mission { color: var(--text-secondary); }
+.site-home .about-legal-link { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 8px 18px; margin: 4px 0 28px; border: 1px solid var(--primary); border-radius: 999px; color: var(--primary); font-weight: 700; text-decoration: none; transition: background .2s ease, color .2s ease; }
+.site-home .about-legal-link:hover, .site-home .about-legal-link:focus-visible { background: var(--primary); color: #fff; }
+@media (max-width: 600px) { .site-home .about-content p { font-size: 1rem; line-height: 1.9; } }
